@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+            href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container" style="max-width: 900px">
+    <div class="py-5 text-center">
+        <h2>게시판</h2>
+    </div>
+
+    <hr class="my-4">
+
+    <!-- 검색창-->
+    <div class = "container">
+        <form th:action="@{/board/list}" method="get">
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="searchKeyword" class="form-control" placeholder="검색어를 입력하세요.">
+                </div>
+                <div class="col">
+                    <button class="w-30 btn btn-primary btn-md" style="float:right;" type="submit">검색</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>글 번호</th>
+                <th>제목</th>
+                <th>조회수</th>
+                <th>작성일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="board : ${list}">
+                <td th:text="${board.id}"></td>
+                <td>
+                    <a th:text="${board.title}" th:href="@{/board/view/{id}(id=${board.id})}"></a>
+                </td>
+                <td th:text="${board.viewCount}"></td>
+                <td th:text="${board.createDate}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- 페이징 버튼 html 코드 -->
+        <div class="text-center">
+        <th:block th:each="page: ${#numbers.sequence(startPage, endPage)}">
+            <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+            <strong th:if="${page == nowPage}" th:text="${page}"></strong>
+        </th:block>
+        </div>
+
+        <hr class="my-4">
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-lg"
+                        onclick="location.href='boardWrite.html'"
+                        th:onclick="|location.href='@{/board/write}'|"
+                        type="button">글 작성</button>
+            </div>
+        </div>
+
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
