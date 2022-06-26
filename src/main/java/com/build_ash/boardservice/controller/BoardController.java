@@ -25,10 +25,10 @@ public class BoardController {
     private BoardRepository boardRepository;
 
     // 글 작성
-    @GetMapping("/board/write")     //localhost:8080/board/write 로 접속하면
+    @GetMapping("/board/write")
     public String boardWriteForm() {
 
-        return "boardWrite";    //이 페이지를 보여주게 되는 것
+        return "boardWrite";
     }
 
     // 글 작성 완료
@@ -41,7 +41,7 @@ public class BoardController {
         model.addAttribute("searchUrl", "/board/list");
 
         return "message";
-        //return "redirect:/board/list";    //글 작성 팝업 올리기전 코드
+        //return "redirect:/board/list";
     }
 
     // 게시글 리스트
@@ -71,7 +71,7 @@ public class BoardController {
     }
 
     // 게시글 상세페이지
-    @GetMapping("/board/view/{id}")      // localhost:8080/board/view?id=1
+    @GetMapping("/board/view/{id}")
     public String boardView(@PathVariable("id") Integer id, Model model) {
 
         boardRepository.findById(id);
@@ -114,6 +114,6 @@ public class BoardController {
         boardService.write(boardTemp);
 
         return "message";
-        //return "redirect:/board/list";    //팝업 메세지 띄우기전 return값
+        //return "redirect:/board/list";
     }
 }
