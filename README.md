@@ -3,7 +3,7 @@
 
 ### 📝프로젝트 소개 및 개요
 - 웹 개발의 기본 소양이라 할 수 있는 CRUD 게시판을 제작
- - 프로젝트 노션: [프로젝트 진행 노션]([https://pattern-mink-364.notion.site/OTT-3d17c00593ae4b868155952958b7da3f](https://cyclic-limburger-c44.notion.site/831613a811ed4aeeaf6ae673a9d1a7c8?v=12e3fbc621b14cb2b5beb3597435aa0d)
+ - 프로젝트 노션: [프로젝트 진행 노션](https://cyclic-limburger-c44.notion.site/831613a811ed4aeeaf6ae673a9d1a7c8?v=12e3fbc621b14cb2b5beb3597435aa0d)
 
 ### 🎈구현 기능
 - CRUD, 조회수 카운트, 게시글 페이징, 검색, 게시글 작성일자
